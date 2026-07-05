@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import style from "./DefaultLayout.module.scss";
 import Header from "../components/Header";
-import Footer from "../DefaultLayouts/components/Footer";
+import Footer from "./components/Footer";
 
 export default function DefaultLayout() {
   return (

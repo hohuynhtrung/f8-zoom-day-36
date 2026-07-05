@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import DefaultLayout from "../../layouts/DefaultLayouts";
+import DefaultLayout from "../../layouts/DefaultLayout";
 import AuthLayout from "../../layouts/AuthLayout";
 import AdminLayout from "../../layouts/AdminLayout";
 import Home from "../../pages/Home";
@@ -17,6 +17,7 @@ import ForgotPassword from "../../pages/ForgetPassword";
 import Dashboard from "../../pages/Dashboard";
 import UserManage from "../../pages/Users";
 import Settings from "../../pages/Settings";
+import NotFound from "../../pages/NotFound";
 
 export default function AppRoutes() {
   return (
@@ -25,26 +26,28 @@ export default function AppRoutes() {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route index element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="/post/:id" element={<PostDetail />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy" element={<Privacy />} />
+          <Route path="about" element={<About />} />
+          <Route path="posts" element={<Posts />} />
+          <Route path="post/:id" element={<PostDetail />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="privacy" element={<Privacy />} />
         </Route>
 
         <Route element={<AuthLayout />}>
           <Route index element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
         </Route>
 
         <Route element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/user-manage" element={<UserManage />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="user-manage" element={<UserManage />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
