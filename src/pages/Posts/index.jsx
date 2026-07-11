@@ -12,10 +12,7 @@ export default function Posts() {
   const currentPage = parseInt(searchParams.get("page")) || 1;
   const postsPerPage = 20;
 
-  const totalPage = Math.ceil(posts.length / postsPerPage);
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPage = 5;
 
   const handlePageChange = (pageNumber) => {
     setSearchParams({ page: pageNumber });
@@ -23,7 +20,9 @@ export default function Posts() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch(
+      `https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${postsPerPage}`,
+    )
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
@@ -33,7 +32,7 @@ export default function Posts() {
         console.error("Error call API:", error);
         setLoading(false);
       });
-  }, []);
+  }, [currentPage]);
 
   const capitalizeFirstLetter = (string) => {
     if (!string) return "";
@@ -54,7 +53,7 @@ export default function Posts() {
       ) : (
         <>
           <div className={style["posts-grid"]}>
-            {currentPosts.map((post) => (
+            {posts.map((post) => (
               <div className={style["post-card"]} key={post.id}>
                 <div className={style["post-info"]}>
                   <h3>{capitalizeFirstLetter(post.title)}</h3>

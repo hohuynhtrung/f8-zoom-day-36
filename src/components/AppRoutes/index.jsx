@@ -34,17 +34,15 @@ export default function AppRoutes() {
         </Route>
 
         <Route element={<AuthLayout />}>
-          <Route index element={<Login />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
         </Route>
 
         <Route element={<AdminLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="user-manage" element={<UserManage />} />
-          <Route path="settings" element={<Settings />} />
+          <Route path="admin" element={<Dashboard />} />
+          <Route path="admin/user" element={<UserManage />} />
+          <Route path="admin/settings" element={<Settings />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

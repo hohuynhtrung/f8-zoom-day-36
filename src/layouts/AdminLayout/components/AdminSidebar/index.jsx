@@ -3,9 +3,9 @@ import style from "./AdminSidebar.module.scss";
 
 export default function AdminSidebar() {
   const menuItems = [
-    { path: "/dashboard", label: "Dashboard" },
-    { path: "/user-manage", label: "User Manage" },
-    { path: "/settings", label: "Settings" },
+    { path: "/admin", label: "Dashboard" },
+    { path: "admin/user", label: "User Manage" },
+    { path: "admin/settings", label: "Settings" },
   ];
   return (
     <header className={style["admin-sidebar"]}>

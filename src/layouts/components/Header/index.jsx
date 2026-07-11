@@ -7,7 +7,7 @@ function Header() {
     { path: "/about", label: "About" },
     { path: "/posts", label: "Posts" },
     { path: "/login", label: "Auth" },
-    { path: "/dashboard", label: "Dashboard" },
+    { path: "/admin", label: "Dashboard" },
   ];
 
   const location = useLocation();
